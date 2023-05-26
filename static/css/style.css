@@ -1,0 +1,170 @@
+html {
+background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/c1ee8c46463165.585530c44ffb2.png);
+object-fit: cover;
+background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+html, body {
+    margin: 15;
+    padding: 0;
+
+}
+
+
+.buttons {
+  flex-direction: greed;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputs {
+  padding: 20px;
+  display: flex;
+}
+
+input[type=submit], input[type=reset]{
+    display: greed;
+    background:#C5ACDB;
+    cursor:pointer;
+    border:3px;
+    border-color:white;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    gap: 10px;
+    transition-duration: 0.4s;
+    font-size: 15px;
+}
+
+
+input[type=text]:hover{
+background-color: #C5ACDB;
+color:white;
+}
+input[type=password]:hover{
+background: #C5ACDB;
+color:white;
+}
+
+input[type=submit]:hover {
+  background-color: #8153A4;
+  color:white;
+}
+input[type=reset]:hover {
+  background-color: #8153A4;
+  color:white;
+}
+button{
+transition-duration: 0.4s;}
+button:hover{
+background-color: #8153A4;
+  color:white;
+}
+
+.join {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.create-btn {
+  width: 100%;
+}
+
+.message-box {
+  opacity: .6;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5px;
+  background-color: #C5ACDB; 
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  align-items: stretch;
+  transition-duration: 0.4s;
+  word-break:break-all;
+}
+.message-box:hover:{
+opacity: 1;
+}
+
+#messages {
+  overflow-y: scroll;
+  flex: 1;
+  width: 100%;
+}
+
+
+
+h2 {
+  text-align: center;
+}
+
+#message {
+  flex: 1;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  font-family: URW Chancery L, cursive;
+}
+
+
+.muted {
+  white-space: nowrap;
+  font-size: 13px;
+  color: #502477;
+  font-family: Snell Roundhand, cursive;
+}
+
+.user{
+  display: flex;
+  flex-direction: row;
+}
+
+.input_window{
+  opacity: .8;
+  margin:300px auto;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #502477;
+  background-color: white;
+  height:300px;
+  display: flex;
+  flex-direction: row;
+  width:400px;
+  text-align: center;
+}
+.text_in_box{
+  opacity: unset;
+  margin: auto;
+  display: greed;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  font-family: URW Chancery L, cursive;
+}
+
+
+
+
+
+
+

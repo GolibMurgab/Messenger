@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="input_window">
+    <div class="text_in_box">
+    <h2>Добро пожаловать!</h2>
+    <form action="" method="post" autocomplete="off" autofocus>
+    <p>
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="Ваш логин">
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Ваш пароль">
+    </p>
+    <p>
+        <input type="submit" value="Войти" name="login">
+        <input type="submit" value="Регистрация" name="registration">
+        <input type="reset" value="Очистить">
+
+    </p>
+    {% if error %}
+        <p><font color=red>{{error}}</font></p>
+    {% endif %}
+  </form>
+        </div>
+    </div>
+{% endblock %}

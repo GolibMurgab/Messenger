@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% block content %}
+
+<form action="" method="post" autocomplete="off" autofocus>
+    <p>
+      <input type="text" name="room_number" id="input" placeholder="Введите комнату">
+      <input type="submit" value="Найти" name="find">
+      <input type="submit" value="Создать" name="create">
+      <input type="submit" value="Выйти" name="leave" onClick="leave_account()">
+      {% if error %}
+        <font color=red>{{error}}</font>
+      {% endif %}
+    </p>
+</form>
+
+<p><center><font color="#8153A4", face="URW Chancery L, cursive", size="5">Номер текущей комнаты: {{room_number}}</font></center></p>
+
+<div class="message-box">
+  <div id="messages"></div>
+  <div class="inputs">
+    <input
+      type="text"
+      rows="3"
+      placeholder="Текст сообщения"
+      name="message"
+      id="message"
+    />
+    <button type="button" name="Send" id="send-btn" onClick="sendMessage()">
+      Отправить
+    </button>
+  </div>
+</div>
+<script type="text/javascript">
+  var socketio = io();
+
+  const messages = document.getElementById("messages");
+
+  const loadMessage = (name, msg, time) => {
+    const content = `
+    <div class="text">
+        <span>
+            <strong>${name}</strong>: ${msg}
+        </span>
+        <span class="muted">
+            <strong>${time}</strong>
+        </span>
+    </div>
+    `;
+    messages.innerHTML += content;
+    const texts = document.getElementsByClassName('text');
+    console.log(texts);
+    messages.scrollTop = texts[texts.length - 1].offsetTop;
+  };
+
+  socketio.on("message", (data) => {
+    loadMessage(data.name, data.message, data.time);
+  });
+
+  document.getElementById("message")
+      .addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+          document.getElementById("send-btn").click();
+      }
+  });
+
+  const sendMessage = () => {
+    const message = document.getElementById("message");
+    if (message.value == "") return;
+    socketio.emit("message", { data: message.value });
+    message.value = "";
+    message.focus();
+  };
+
+  const leave_account = () => {
+    socketio.emit("disconnect");
+  };
+</script>
+{% for msg in messages %}
+<script type="text/javascript">
+  loadMessage("{{msg.name}}", "{{msg.message}}", "{{msg.time}}");
+</script>
+{% endfor %} {% endblock %}
